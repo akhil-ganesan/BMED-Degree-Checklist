@@ -1,0 +1,200 @@
+/* styles.css */
+
+body {
+    font-family: 'Helvetica'/*, sans-serif*/;
+    background-color: #333;  /* Dark theme background color */
+    color: #fff;            /* Dark theme text color */
+    transition: background-color 0.3s, color 0.3s;
+    padding: 50px; /* Add padding to the body */
+}
+
+h1, h2 {
+    color: inherit;  /* Inherit text color from the body */
+    text-align: center;
+}
+
+button {
+    text-align: center;
+    background-color: #444;  /* Dark theme result background color */
+    border: none;
+    color: #fff;            /* Dark theme result text color */
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    margin: 5px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#checklistForm label {
+    display:inline;
+    border: 3px solid #888;
+    border-radius: 17px;
+    padding: 10px;
+}
+
+#checklistForm input[type="checkbox"] {
+    /* margin-bottom: 15px; */
+    /* Hide the default checkbox */
+    /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Use a solid-colored grey box */
+    /* background-color: #ccc;
+    border: 0px solid #999;
+    border-radius: 0px; */
+    width: 0px;
+    height: 0px;
+    /*vertical-align: middle;*/
+    /*display: inline-block;
+    position: relative;
+    /* Add some padding to the left for visual spacing */
+    /*padding-left: 30px;*/
+    /*cursor: pointer;*/
+    visibility: hidden;
+    /*display:none;*/
+}
+
+#checklistForm input[type="checkbox"]:checked + label {
+    /* Change the color when checked to red */
+    background-color: #003057;
+}
+
+#checklistForm input[type="checkbox"]:hover:not(:checked) + label {
+    /* Darken the color on hover when unchecked */
+    background-color: #444;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#checklistForm input[type="checkbox"]:hover:checked + label {
+    /* Darken the color on hover when unchecked */
+    background-color: #104067;
+    transform: scale(1.05);
+}
+
+#checklistForm input[type="checkbox"]::before + label {
+    /* Create a pseudo-element to represent the checkmark */
+    /*content: '\2713'; /* Unicode checkmark character */
+    font-size: 16px;
+    color: #fff;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    opacity: 0; /* Initially hidden */
+}
+
+#checklistForm input[type="checkbox"]:checked::before + label {
+    /* Show the checkmark when the checkbox is checked */
+    opacity: 1;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+#checklistForm {
+    /*align-items:center;*/
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Automatically create columns based on available space */
+    gap: 3px; /* Space between items */
+    /* padding: 50px; */
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #444;  /* Dark theme result background color */
+    color: #fff;            /* Dark theme result text color */
+    text-align: center;
+}
+
+/* Light theme styles (overrides dark theme styles when body has .light-theme class) */
+body.light-theme {
+    background-color: #fff;
+    color: #333;
+}
+
+body.light-theme h1, body.light-theme h2 {
+    color: inherit;
+}
+
+body.light-theme button {
+    background-color: #fff;
+    color: #333;
+}
+
+body.light-theme #result {
+    background-color: #fff;
+    color: #333;
+}
+
+body.light-theme #checklistForm input[type="checkbox"]:checked + label {
+    /* Change the color when checked to red */
+    color:#fff;
+    border-color: #fff;
+}
+
+body.light-theme #checklistForm input[type="checkbox"]:hover:not(:checked) + label {
+    /* Darken the color on hover when unchecked */
+    background-color: #ddd;
+    color:#333
+}
+
+body.BME-theme .toggleButton {
+    background-color: #003057;
+    color:#fff
+}
+
+  .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-items:center;
+    /* padding: 10px; */
+    /* background-color: #f0f0f0; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer; */
+    /* border: 1px solid #ddd; */
+  }
+  
+  .checkbox-wrapper input[type="checkbox"] {
+    /* margin-right: 10px; */
+  }
+  
+  .checkbox-wrapper label {
+    /* font-size: 16px;
+    font-weight: bold;
+    color: #333; */
+  }
+  
+  .checkbox-wrapper ul {
+    /* margin-top: 5px;
+    margin-left: 20px; */
+    /* list-style-type: none; */
+    /* padding-left: 0; */
+  }
+  
+  .checkbox-wrapper ul li {
+    /* font-size: 14px;
+    color: #555; */
+  }
+  
+  @media (max-width: 768px) {
+    #checklistContainer {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller columns on small screens */
+    }
+  }  
